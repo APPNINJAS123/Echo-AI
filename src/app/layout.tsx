@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MeetOS",
+  title: "Echo AI",
   description: "Meet with your AI Agents!",
 };
 
