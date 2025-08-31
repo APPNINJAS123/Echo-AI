@@ -1,5 +1,5 @@
 # ECHO AI
-## Create and get into zoom style meetings with your ai agents
+## CREATE AND GET INTO ZOOM STYLE MEETINGS WITH YOUR AI AGENTS
 
 ## HOW IT WORKS:
 ### 1.Schedule or start a meeting with your AI agent.
