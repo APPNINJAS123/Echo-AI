@@ -13,6 +13,7 @@
 ### Frontend: Typescript,Tailwind CSS
 ### Backend: Steam IO,Supabase
 ### Payments: Polar SDK
+### Auth: BetterAuth
 
 
 
