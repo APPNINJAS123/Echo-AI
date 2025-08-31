@@ -11,7 +11,7 @@
 ## TECH STACK:
 ### AI: GPT 4o
 ### Frontend: Typescript,Tailwind CSS
-### Backend: Steam IO,Supabase
+### Backend: Stream IO,Supabase,Inngest
 ### Payments: Polar SDK
 ### Auth: BetterAuth
 
