@@ -58,6 +58,8 @@ const getSubscriptionStart = (subscription?: PolarSubscription | null) => {
 const getPlanType = (product: PolarProduct | null): PlanType => {
   if (!product) return "free";
 
+  // Keep detection resilient across billing/catalog payload changes after framework upgrades.
+
   const metadataPlan = [
     String(product.metadata?.plan ?? ""),
     String(product.metadata?.planType ?? ""),
