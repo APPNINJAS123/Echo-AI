@@ -26,6 +26,9 @@ type PolarProduct = {
   name?: string;
   slug?: string;
   metadata?: Record<string, unknown>;
+  prices?: Array<{
+    recurringInterval?: string;
+  }>;
 };
 
 export type UsageContext = {
@@ -55,11 +58,23 @@ const getSubscriptionStart = (subscription?: PolarSubscription | null) => {
 const getPlanType = (product: PolarProduct | null): PlanType => {
   if (!product) return "free";
 
-  const searchable = [product.name, product.slug, String(product.metadata?.plan ?? "")]
+  const metadataPlan = [
+    String(product.metadata?.plan ?? ""),
+    String(product.metadata?.planType ?? ""),
+    String(product.metadata?.tier ?? ""),
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  const recurringInterval = product.prices?.[0]?.recurringInterval?.toLowerCase() ?? "";
+
+  const searchable = [product.name, product.slug, metadataPlan]
     .join(" ")
     .toLowerCase();
 
   if (searchable.includes("enterprise")) return "enterprise";
+  if (recurringInterval === "year" || recurringInterval === "yearly") return "yearly";
+  if (recurringInterval === "month" || recurringInterval === "monthly") return "monthly";
   if (searchable.includes("year")) return "yearly";
   if (searchable.includes("month")) return "monthly";
 
